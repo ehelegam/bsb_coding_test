@@ -7,16 +7,10 @@ Created on Sun Dec 10 14:46:50 2023
 """
 
 from base_class import DataProcessingBaseClass
-
+import luigi
 
 class DataProcessingMainClass(DataProcessingBaseClass):
     """
     The data processing base class
     """
-    
-    
-    
-    def yield_bed_file(self):
-        """
-        None
-        """
+    sample = luigi.Parameter()

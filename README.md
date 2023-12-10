@@ -1,8 +1,11 @@
 # Coding Test - Advanced -  Elves Duarte
 
-## Cloning the Coding Test dataset
-
+## submodule
 
 ``` bash
-git clone https://gitlab.com/brokenstringbio/analysis/coding-test-advanced.git
+git submodule add https://gitlab.com/brokenstringbio/analysis/coding-test-advanced.git
 ```
+
+## bedtools
+
+https://bedtools.readthedocs.io/en/latest/content/installation.html

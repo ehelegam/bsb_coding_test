@@ -11,20 +11,19 @@ class DataProcessingBaseClass(luigi.Task):
     input_directory = luigi.Parameter()
     output_directory = luigi.Parameter()
     #asisi_sites = luigi.Parameter()
-    #min_mapping_quality = luigi.IntParameter()
+    min_read_quality = luigi.IntParameter()
     #normalization_number = luigi.IntParameter()
         
     
     
-    def pass_class_parameters(self) -> dict:
+    def pass_base_class_parameters(self) -> dict:
         """
         Pass luigi parameters across tasks
         """
         return {
             "input_directory": self.input_directory,
-            "asisi_sites": self.asisi_sites,
-            "min_mapping_quality": self.min_mapping_quality,
-            "normalization_number": self.normalization_number
+            "output_directory": self.output_directory,
+            #"asisi_sites": self.asisi_sites,
+            "min_read_quality": self.min_read_quality,
+            #"normalization_number": self.normalization_number
             }
-    
-    
