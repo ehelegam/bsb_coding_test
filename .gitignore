@@ -159,5 +159,8 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-
+# ignore locally generated files
 run.sh
+filtered_bed_files/
+luigi-server-2023-12-10.err
+luigi-server-2023-12-10.out
