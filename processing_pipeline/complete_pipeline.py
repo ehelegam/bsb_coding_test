@@ -14,7 +14,7 @@ class CompletePipeline(DataProcessingBaseClass, luigi.WrapperTask):
         return {
             "sample": sample,
             "input_directory": self.input_directory,
-            "output_directory": self.output_directory,
+            "base_output_directory": self.base_output_directory,
             #"asisi_sites": self.asisi_sites,
             "min_read_quality": self.min_read_quality,
             #"normalization_number": self.normalization_number
