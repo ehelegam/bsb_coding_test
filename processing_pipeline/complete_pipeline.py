@@ -1,5 +1,6 @@
 from filter_bed_files import FilterBedFile
 from intersect_bed_files import IntersectBedFiles
+from sample_total_breaks import SampleTotalBreaks
 from base_class import DataProcessingBaseClass
 import luigi
 import glob
@@ -11,6 +12,8 @@ class CompletePipeline(DataProcessingBaseClass, luigi.WrapperTask):
     def pass_main_class_parameters(self, sample) -> dict:
         """
         Pass luigi parameters across tasks
+
+        This allows passing the sample name across luigi tasks
         """
         return {
             "sample": sample,
@@ -24,5 +27,7 @@ class CompletePipeline(DataProcessingBaseClass, luigi.WrapperTask):
     
 
     def requires(self):
+        # loop over each bed file in the input directory
         for bedfile in glob.glob(self.input_directory + self.BED_FILE_EXTENSION):
-            yield IntersectBedFiles(**self.pass_main_class_parameters(sample=bedfile))
+            # process the sample
+            yield SampleTotalBreaks(**self.pass_main_class_parameters(sample=bedfile))

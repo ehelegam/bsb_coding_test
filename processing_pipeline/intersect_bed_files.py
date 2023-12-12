@@ -22,11 +22,12 @@ class IntersectBedFiles(DataProcessingMainClass):
     def output(self):
         return luigi.LocalTarget(
             os.path.join(self.base_output_directory, 'coding_test_results/', 'intersected_bed_files/', 
-            os.path.basename(self.sample).replace('filtered', 'chr21_intersected.bed'))
+            os.path.basename(self.sample).replace('.breakends', '_intersected'))
         )
 
     def run(self):
 
+        # command line to run bedtools intersect
         intersection_command = [
             'bedtools',
             'intersect',
@@ -34,5 +35,6 @@ class IntersectBedFiles(DataProcessingMainClass):
             '-b', self.asisi_sites
         ]
 
+        # create the local target
         with open(self.output().path, 'w') as intersect_output:
             subprocess.call(intersection_command, stdout=intersect_output)
