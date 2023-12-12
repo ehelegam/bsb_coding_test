@@ -14,3 +14,17 @@ class DataProcessingMainClass(DataProcessingBaseClass):
     The data processing base class
     """
     sample = luigi.Parameter()
+
+
+    def pass_main_class_parameters(self, sample) -> dict:
+        """
+        Pass luigi parameters across tasks
+        """
+        return {
+            "sample": sample,
+            "input_directory": self.input_directory,
+            "base_output_directory": self.base_output_directory,
+            "asisi_sites": self.asisi_sites,
+            "min_read_quality": self.min_read_quality,
+            #"normalization_number": self.normalization_number
+            }

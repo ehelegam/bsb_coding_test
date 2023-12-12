@@ -10,7 +10,7 @@ class DataProcessingBaseClass(luigi.Task):
     """
     input_directory = luigi.Parameter()
     base_output_directory = luigi.Parameter()
-    #asisi_sites = luigi.Parameter()
+    asisi_sites = luigi.Parameter()
     min_read_quality = luigi.IntParameter()
     #normalization_number = luigi.IntParameter()
         
@@ -23,7 +23,7 @@ class DataProcessingBaseClass(luigi.Task):
         return {
             "input_directory": self.input_directory,
             "base_output_directory": self.base_output_directory,
-            #"asisi_sites": self.asisi_sites,
+            "asisi_sites": self.asisi_sites,
             "min_read_quality": self.min_read_quality,
             #"normalization_number": self.normalization_number
             }

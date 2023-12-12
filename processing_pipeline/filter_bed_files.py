@@ -40,4 +40,4 @@ class FilterBedFile(DataProcessingMainClass):
 
     def run(self):
         filter_bed_file_content = read_bed_file_content(self.sample)
-        filter_bed_file_content.to_csv(self.output().path, sep = '\t')
+        filter_bed_file_content.to_csv(self.output().path, sep = '\t', header=False, index=False)
