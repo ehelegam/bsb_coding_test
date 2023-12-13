@@ -9,7 +9,7 @@ import glob
 import os
 
 
-class SampleTotalBreaks(DataProcessingMainClass):
+class CountsFilteredBreak(DataProcessingMainClass):
     """
     A luigi task to count breaks per sample
     """
@@ -22,8 +22,8 @@ class SampleTotalBreaks(DataProcessingMainClass):
     def output(self):
         return luigi.LocalTarget(
             os.path.join(
-                os.path.join(self.base_output_directory, 'coding_test_results/', 'number_of_breaks_per_sample/',
-                os.path.basename(self.sample).replace('.breakends', '_breaks.csv'))
+                os.path.join(self.base_output_directory, 'coding_test_results/', 'counts_filtered_break/',
+                os.path.basename(self.sample).replace('.breakends', '_filtered-breaks.csv'))
             )
         )
 

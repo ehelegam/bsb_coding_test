@@ -13,7 +13,7 @@ class DataProcessingMainClass(DataProcessingBaseClass):
     """
     The data processing base class
     """
-    sample = luigi.Parameter()
+    sample = luigi.Parameter(default='undefined')
 
 
     def pass_main_class_parameters(self, sample) -> dict:

@@ -13,8 +13,9 @@ class SetUpOutputDirs(DataProcessingBaseClass):
             luigi.LocalTarget(os.path.join(self.base_output_directory, 'coding_test_results/', dir)) for dir in [
             'filtered_bed_files',
             'intersected_bed_files',
-            'number_of_breaks_per_sample',
-            'number_of_breaks_unfiltered'
+            'counts_filtered_break',
+            'counts_unfiltered_break',
+            'normalised_break_counts',
             'summary_results'
             ]
         ]

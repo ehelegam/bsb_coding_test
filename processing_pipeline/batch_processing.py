@@ -1,11 +1,9 @@
-from filter_bed_files import FilterBedFile
-from intersect_bed_files import IntersectBedFiles
-from sample_total_breaks import SampleTotalBreaks
+from normalise_break_counts import NormaliseBreakCounts
 from base_class import DataProcessingBaseClass
 import luigi
 import glob
 
-class CompletePipeline(DataProcessingBaseClass, luigi.WrapperTask):
+class BatchProcessing(DataProcessingBaseClass, luigi.WrapperTask):
 
     BED_FILE_EXTENSION = luigi.Parameter()
 
@@ -20,8 +18,8 @@ class CompletePipeline(DataProcessingBaseClass, luigi.WrapperTask):
             "input_directory": self.input_directory,
             "base_output_directory": self.base_output_directory,
             "asisi_sites": self.asisi_sites,
-            "min_read_quality": self.min_read_quality,
-            #"normalization_number": self.normalization_number
+            "min_read_quality": self.min_read_quality
+            #"normalisation_number": self.normalisation_number
             }
     
     
@@ -30,4 +28,4 @@ class CompletePipeline(DataProcessingBaseClass, luigi.WrapperTask):
         # loop over each bed file in the input directory
         for bedfile in glob.glob(self.input_directory + self.BED_FILE_EXTENSION):
             # process the sample
-            yield SampleTotalBreaks(**self.pass_main_class_parameters(sample=bedfile))
+            yield NormaliseCounts(**self.pass_main_class_parameters(sample=bedfile))
