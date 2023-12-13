@@ -28,4 +28,4 @@ class BatchProcessing(DataProcessingBaseClass, luigi.WrapperTask):
         # loop over each bed file in the input directory
         for bedfile in glob.glob(self.input_directory + self.BED_FILE_EXTENSION):
             # process the sample
-            yield NormaliseCounts(**self.pass_main_class_parameters(sample=bedfile))
+            yield NormaliseBreakCounts(**self.pass_main_class_parameters(sample=bedfile))
