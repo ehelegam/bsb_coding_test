@@ -1,6 +1,6 @@
 from main_processing_class import DataProcessingMainClass
 from setup_output_dirs import SetUpOutputDirs
-from utils import read_bed_file_content
+from utils import *
 import pandas as pd
 import subprocess
 import luigi
@@ -27,6 +27,7 @@ class CountsUnfilteredBreak(DataProcessingMainClass):
             )
         )
 
+    @time_luigi_run
     def run(self):
         # read the intersected bed file
         # pd.DataFrame

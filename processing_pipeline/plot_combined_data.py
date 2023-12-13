@@ -1,8 +1,8 @@
 from main_processing_class import DataProcessingMainClass
 from combine_break_counts import CombineBreakCounts
-from utils import read_bed_file_content
 from utils import barplot
 import pandas as pd
+from utils import *
 import subprocess
 import luigi
 import time
@@ -24,6 +24,7 @@ class PlotCombinedData(DataProcessingMainClass):
         pass
 
 
+    @time_luigi_run
     def run(self):
         # read the combined counts data
         combined_break_counts = pd.read_csv(self.input().path).sort_values(['num_breaks']).reset_index(drop=True)

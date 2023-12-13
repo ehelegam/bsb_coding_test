@@ -1,7 +1,7 @@
 from main_processing_class import DataProcessingMainClass
 from counts_filtered_break import CountsFilteredBreak
 from counts_unfiltered_break import CountsUnfilteredBreak
-from utils import read_bed_file_content
+from utils import *
 import pandas as pd
 import subprocess
 import luigi
@@ -31,6 +31,7 @@ class NormaliseBreakCounts(DataProcessingMainClass):
             )
         )
 
+    @time_luigi_run
     def run(self):
         
         # filtered and unfiltered counts

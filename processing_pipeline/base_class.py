@@ -1,8 +1,4 @@
 import luigi
-import logging
-import datetime
-import subprocess
-
 
 class DataProcessingBaseClass(luigi.Task):
     """

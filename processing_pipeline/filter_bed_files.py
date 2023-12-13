@@ -37,7 +37,7 @@ class FilterBedFile(DataProcessingMainClass):
         return luigi.LocalTarget(filtered_bed_files)
 
 
-
+    @time_luigi_run
     def run(self):
         # read the bed file
         # a decorators will filter the bed file

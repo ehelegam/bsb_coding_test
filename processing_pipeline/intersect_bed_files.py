@@ -1,6 +1,6 @@
 from main_processing_class import DataProcessingMainClass
 from filter_bed_files import FilterBedFile
-from utils import read_bed_file_content
+from utils import *
 import pandas as pd
 import subprocess
 import luigi
@@ -25,6 +25,7 @@ class IntersectBedFiles(DataProcessingMainClass):
             os.path.basename(self.sample).replace('.breakends', '_intersected'))
         )
 
+    @time_luigi_run
     def run(self):
 
         # command line to run bedtools intersect

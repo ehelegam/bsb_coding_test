@@ -1,5 +1,6 @@
 from main_processing_class import DataProcessingMainClass
 from base_class import DataProcessingBaseClass
+from utils import *
 import luigi
 import os
 
@@ -22,7 +23,7 @@ class SetUpOutputDirs(DataProcessingBaseClass):
 
         return output_dirs
 
-
+    @time_luigi_run
     def run(self):
 
         # loop over the list containing local targets

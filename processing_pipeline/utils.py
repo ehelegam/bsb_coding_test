@@ -5,9 +5,25 @@ Utility scripts
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
+import datetime
 import os
 
 
+# decorator to time the run command of luigi tasks
+def time_luigi_run(func):
+    def wrapper(*arg, **kw):
+        print('--------------------------------------------------')
+        print()
+        print(f'run() started at {datetime.datetime.now()}')
+        res = func(*arg, **kw)
+        print(f'run() ended at {datetime.datetime.now()}')
+        print()
+        print('--------------------------------------------------')
+        return res, func.__name__    
+    return wrapper
+
+
+# decorator to filter bed files
 def filter_bed_decorator(decorated_function, min_read_quality):
     def decorator_wrapper(*args, **kwargs):
         bedfile = decorated_function(*args, **kwargs)

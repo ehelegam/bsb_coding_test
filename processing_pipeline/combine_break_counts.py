@@ -1,6 +1,6 @@
 from main_processing_class import DataProcessingMainClass
 from batch_processing import BatchProcessing
-from utils import read_bed_file_content
+from utils import *
 import pandas as pd
 import subprocess
 import luigi
@@ -27,6 +27,7 @@ class CombineBreakCounts(DataProcessingMainClass):
             )
         )
 
+    @time_luigi_run
     def run(self):
 
         # create the combined data frame
