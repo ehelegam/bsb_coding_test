@@ -163,5 +163,5 @@ coding_test_results/
 ## Findings
 
 The barplot shows the normalised number of breaks (__y axis__) per sample (__x axis__).
-[plot_normalised](2023_12_13_coding_test_results/summary_results/number_of_breaks_per_sample_norm_per_thousand.png)
+![plot_normalised](2023_12_13_coding_test_results/summary_results/number_of_breaks_per_sample_norm_per_thousand.png)
 
