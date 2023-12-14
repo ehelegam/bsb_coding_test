@@ -162,6 +162,9 @@ coding_test_results/
 
 ## Findings
 
-The barplot shows the normalised number of breaks (__y axis__) per sample (__x axis__).
+The barplot shows the normalised number of breaks (__y axis__) per sample (__x axis__) (sorted by the number of breaks). 
 ![plot_normalised](2023_12_13_coding_test_results/summary_results/number_of_breaks_per_sample_norm_per_thousand.png)
 
+The samples number 1, 2, 4, 5, 6, 7, and 8 are more likely controls. Samples 3 and 13 had a bit of a signal (uncertain if they were treated), which could be the result of contamination. The remaining samples showed a moderate level of signal, indicating they were treated.
+
+Sample 16 had the highest number of breaks (n=18), corresponding to approximately 25.35% (18/71) of all breaks in the provided AsiSI sites.
