@@ -46,7 +46,7 @@ def barplot(dataset: pd.DataFrame, ycol: str, ylabel: str, base_dir, output: str
     """
     plt.figure()
     plot = sns.barplot(data= dataset, x = 'sample_name', y = ycol)
-    plt.xticks(rotation=50)
+    plt.xticks(rotation=50, ha='right', rotation_mode='anchor')
     plt.tight_layout()
     plot.set(xlabel = 'Sample Name', ylabel = ylabel)
     plt.savefig(
