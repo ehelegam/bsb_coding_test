@@ -21,7 +21,32 @@ class PlotCombinedData(DataProcessingMainClass):
 
     
     def output(self):
-        pass
+        return [
+            luigi.LocalTarget(
+                os.path.join(
+                    self.base_output_directory,
+                    'coding_test_results/'
+                    'summary_results/',
+                    'number_of_breaks_per_sample.png'
+                )
+            ),
+            luigi.LocalTarget(
+                os.path.join(
+                    self.base_output_directory,
+                    'coding_test_results/'
+                    'summary_results/',
+                    'number_of_breaks_per_sample_norm_per_thousand.png'
+                )
+            ),
+            luigi.LocalTarget(
+                os.path.join(
+                    self.base_output_directory,
+                    'coding_test_results/'
+                    'summary_results/',
+                    'number_of_breaks_per_samplenorm_per_unfiltered_reads.png'
+                )
+            )
+        ]
 
 
     @time_luigi_run
